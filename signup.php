@@ -10,11 +10,11 @@
   <h2>Sign Up</h2>
   
   <?php
+  include('db_conn.php');
   // Define variables and initialize with empty values
   $name = $username = $email = $password = $confirmPassword = "";
   
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
     $name = $_POST["name"];
     $username = $_POST["username"];
     $mobile = $_POST["mobile"];
@@ -28,9 +28,16 @@
     } elseif ($password != $confirmPassword) {
       echo "Passwords do not match.";
     } else {
-      // Perform further processing (e.g., database insertion)
-      echo "Registration successful!";
-      // You can redirect to another page here if needed
+      $hashed_password = md5($password);
+      $sql = "INSERT INTO users (Name,UserName, Mobile, Email,Password ) VALUES ('$name','$username', '$mobile','$email','$hashed_password')";
+    if (mysqli_query($conn, $sql)) {
+        echo "Signup successful!"."<br/>"."Redirecting to login page";
+        sleep(3);
+        header("Location: login.php");
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
     }
   }
   ?>
