@@ -1,4 +1,5 @@
 <?php
+include 'db_conn.php';
 session_start();
 
 if (isset($_SESSION['UserName']) && isset($_SESSION['Name'])) {
@@ -58,11 +59,23 @@ if (isset($_SESSION['UserName']) && isset($_SESSION['Name'])) {
           </ul>
           <?php
           $currentPage = basename($_SERVER['PHP_SELF']);
-
+          $usernameToFind = $_SESSION['UserName'];
+          $sql = "SELECT COUNT(*) as count FROM cartproduct WHERE username = ?";
+          $stmt = $conn->prepare($sql);
+          $stmt->bind_param("s", $usernameToFind);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          $row = $result->fetch_assoc();
+          $rowCount = $row['count'];
+          $stmt->close();
+          $conn->close();
           if ($currentPage == 'home.php') {
             echo '
             <div class="d-flex" role="search">
-            <i class="fa-solid fa-cart-shopping m-2 fs-2" style="color: #ffffff;cursor: pointer;"></i>
+            <div style = "color:white; font-size:2rem">'
+              . $rowCount .
+              '</div>
+            <i class="fa-solid fa-cart-shopping m-2 fs-2" id="cartIconNav" style="color: #ffffff;cursor: pointer;"></i>
             <input class="form-control me-2" type="search" placeholder="Search for instruments" id="searchField" aria-label="Search">
             <button class="btn btn-outline-success" onclick="searchInstruments()" type="submit">Search</button>
             </div>';
@@ -70,15 +83,15 @@ if (isset($_SESSION['UserName']) && isset($_SESSION['Name'])) {
           ?>
         </div>
         <div class="mx-2">
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal"><?php echo $_SESSION['Name']; ?></button>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginModal"><?php echo $_SESSION['UserName']; ?></button>
           <a href="logout.php">
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalRegisterForm">Logout</button>
           </a>
         </div>
       </div>
-      
+
     </nav>
-    
+
   </body>
 
   </html>

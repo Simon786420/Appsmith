@@ -8,10 +8,37 @@
   <link rel="icon" href="images/logo223.jpeg" type="image/gif" sizes="16x16">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+  <link rel="stylesheet" href="cart/cart.css">
 </head>
 
 <body>
   <?php include 'navBar.php'; ?>
+  <div id="CartProduct" class="cartProduct">
+    <?php
+    include 'db_conn.php';
+    $sql = "SELECT * FROM cartproduct WHERE username = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $usernameToFind);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    echo "<table style='width: 100%;'>";
+    echo "<tr><th>ProductName</th><th>Price</th><th>Action</th></tr>";
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["ProductName"] . "</td>";
+        echo "<td>" . $row["Price"] . "</td>";
+        echo "<td><a href='checkout.php'>
+        <h5 class='mb-1 ''>Buy Now</h5></a></td>";
+        echo "</tr>";
+      }
+    } else {
+      echo "<tr><td colspan='3'>No products in cart</td></tr>";
+    }
+    echo "</table>";
+    $conn->close();
+    ?>
+  </div>
   <div class="modal fade" role="dialog" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -148,7 +175,7 @@
                   <a href="checkout.php" onclick="RentAccordion()">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
-                  <a href="cart.php" onclick="RentAccordion()">
+                  <a href="cart.php?product=Accordion&price=1900">
                     <h5 class="mb-1 ">Add to cart</h5>
                   </a>
             </div>
@@ -176,7 +203,7 @@
                 <a href="checkout.php" onclick="RentTripura()">
                   <h5 class="mb-1 ">Rent Now</h5>
                 </a>
-                <a href="cart.php" onclick="RentAccordion()">
+                <a href="cart.php?product=Tripura&price=9999">
                   <h5 class="mb-1 ">Add to cart</h5>
                 </a>
 
@@ -207,7 +234,7 @@
                   <a href="checkout.php" onclick="RentShehnai()">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
-                  <a href="cart.php" onclick="RentAccordion()">
+                  <a href="cart.php?product=Shehnai&price=1999">
                     <h5 class="mb-1 ">Add to cart</h5>
                   </a>
             </div>
@@ -234,7 +261,7 @@
                   <a href="checkout.php" onclick="RentSitar()">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
-                  <a href="cart.php" onclick="RentAccordion()">
+                  <a href="cart.php?product=Sitar&price=1499">
                     <h5 class="mb-1 ">Add to cart</h5>
                   </a>
             </div>
@@ -263,7 +290,7 @@
                   <a href="checkout.php" onclick="RentSantoor()">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
-                  <a href="cart.php" onclick="RentAccordion()">
+                  <a href="cart.php?product=Santoor&price=2199">
                     <h5 class="mb-1 ">Add to cart</h5>
                   </a>
             </div>
@@ -290,7 +317,7 @@
                   <a href="checkout.php" onclick="RentDrumset()">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
-                  <a href="cart.php" onclick="RentAccordion()">
+                  <a href="cart.php?product=Drumset&price=24999">
                     <h5 class="mb-1 ">Add to cart</h5>
                   </a>
             </div>
@@ -321,7 +348,7 @@
                     <a href="checkout.php" onclick="RentTrumpet()">
                       <h5 class="mb-1 ">Rent Now</h5>
                     </a>
-                    <a href="cart.php" onclick="RentAccordion()">
+                    <a href="cart.php?product=Trumphrt&price=4999">
                       <h5 class="mb-1 ">Add to cart</h5>
                     </a>
               </div>
@@ -348,7 +375,7 @@
                     <a href="checkout.php" onclick="RentFlute()">
                       <h5 class="mb-1 ">Rent Now</h5>
                     </a>
-                    <a href="cart.php" onclick="RentAccordion()">
+                    <a href="cart.php?product=Flute&price=3999">
                       <h5 class="mb-1 ">Add to cart</h5>
                     </a>
               </div>
@@ -381,7 +408,7 @@
                         <a href="checkout.php" onclick="RentGuitar()">
                           <h5 class="mb-1 ">Rent Now</h5>
                         </a>
-                        <a href="cart.php" onclick="RentAccordion()">
+                        <a href="cart.php?product=Guitar&price=4999">
                           <h5 class="mb-1 ">Add to cart</h5>
                         </a>
 
@@ -413,7 +440,7 @@
                       <a href="checkout.php" onclick="RentTabla()">
                         <h5 class="mb-1 ">Rent Now</h5>
                       </a>
-                      <a href="cart.php" onclick="RentAccordion()">
+                      <a href="cart.php?product=Tabla&price=4999">
                         <h5 class="mb-1 ">Add to cart</h5>
                       </a>
                 </div>
@@ -621,6 +648,11 @@
                   instruments[i].style.display = "none";
                 }
               }
+            }
+          </script>
+          <script>
+            document.getElementById('cartIconNav').onclick = function() {
+              document.getElementById('CartProduct').style.display = document.getElementById('CartProduct').style.display == "block" ? "none" : "block";
             }
           </script>
 </body>
