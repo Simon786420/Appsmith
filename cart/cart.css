@@ -119,4 +119,8 @@ button a:focus {
     background-color: white;
     z-index: 2;
     display: none;
+    border-radius: 10px;
+    padding: 10px;
 }
+
+

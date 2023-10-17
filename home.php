@@ -28,8 +28,11 @@
         echo "<tr>";
         echo "<td>" . $row["ProductName"] . "</td>";
         echo "<td>" . $row["Price"] . "</td>";
-        echo "<td><a href='checkout.php'>
-        <h5 class='mb-1 ''>Buy Now</h5></a></td>";
+        echo "<td><a href='checkout.php?product=" . $row["ProductName"] . "&price=" . $row["Price"] . "'>
+        <h5 class='mb-1 danger''>Buy Now</h5></td>";
+        echo " <td></a> <a href='cart.php?Action=del&product=" . $row["ProductName"] . "&price=" . $row["Price"] . "'>
+        <h5 class='mb-1 text-danger'><i class='fa-solid fa-trash-can'></i></h5>
+        </a> </td>";
         echo "</tr>";
       }
     } else {
@@ -39,6 +42,7 @@
     $conn->close();
     ?>
   </div>
+
   <div class="modal fade" role="dialog" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -169,10 +173,10 @@
                     free-reed aerophone type ( producing sound as air flows past a reed in a frame), colloquially
                     referred to as a squeezebox. </p>
 
-                  <a href="checkout.php" onclick="Accordion()">
+                  <a href="checkout.php?product=Accordion&price=1900">
                     <h5 class="mb-1 ">Buy Now</h5>
                   </a>
-                  <a href="checkout.php" onclick="RentAccordion()">
+                  <a href="checkout.php?product=Accordion&price=399">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
                   <a href="cart.php?product=Accordion&price=1900">
@@ -197,10 +201,10 @@
                 <p class="card-text mb-auto">Tripuris use musical instruments like the kham made of wood and animal
                   skin, the Sumui (flute) made of bamboo, Sarinda, Chongpreng, Dangdu and cymbals are very famous and
                   popular among indigenous Tripuri people. </p>
-                <a href="checkout.php" onclick="Tripura()">
+                <a href="checkout.php?product=Tripura&price=9999">
                   <h5 class="mb-1 ">Buy Now</h5>
                 </a>
-                <a href="checkout.php" onclick="RentTripura()">
+                <a href="checkout.php?product=Tripura&price=999">
                   <h5 class="mb-1 ">Rent Now</h5>
                 </a>
                 <a href="cart.php?product=Tripura&price=9999">
@@ -228,10 +232,10 @@
                   <p class="card-text mb-auto">The shehnai is a musical instrument, originating from the Indian
                     subcontinent. It is made of wood, with a double reed at one end and a metal or wooden flared bell at
                     the other end </p>
-                  <a href="checkout.php" onclick="Shehnai()">
+                  <a href="checkout.php?product=Shehnai&price=1999">
                     <h5 class="mb-1 ">Buy Now</h5>
                   </a>
-                  <a href="checkout.php" onclick="RentShehnai()">
+                  <a href="checkout.php?product=Shehnai&price=300">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
                   <a href="cart.php?product=Shehnai&price=1999">
@@ -255,10 +259,10 @@
                   <p class="card-text mb-auto">The sitar is a plucked stringed instrument, originating from the Indian
                     subcontinent, used in Hindustani classical music. The instrument was invented in medieval India,
                     flourished in the 18th century, and arrived at its present form in 19th-century India. </p>
-                  <a href="checkout.php" onclick="Sitar()">
+                  <a href="checkout.php?product=Sitar&price=1499">
                     <h5 class="mb-1 ">Buy Now</h5>
                   </a>
-                  <a href="checkout.php" onclick="RentSitar()">
+                  <a href="checkout.php?product=Sitar&price=400">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
                   <a href="cart.php?product=Sitar&price=1499">
@@ -284,10 +288,10 @@
                   <p class="card-text mb-auto">The Indian santoor instrument is a trapezoid-shaped hammered dulcimer,
                     and a variation of the Iranian Santur. The instrument is generally made of walnut and has 25
                     bridges. Each bridge has 4 strings, making for a total of 100 strings. </p>
-                  <a href="checkout.php" onclick="Santoor()">
+                  <a href="checkout.php?product=Santoor&price=2199">
                     <h5 class="mb-1 ">Buy Now</h5>
                   </a>
-                  <a href="checkout.php" onclick="RentSantoor()">
+                  <a href="checkout.php?product=Santoor&price=500">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
                   <a href="cart.php?product=Santoor&price=2199">
@@ -311,10 +315,10 @@
                   <p class="card-text mb-auto">Any percussion instrument can be included, even tambourines and
                     electronic drums. The drum kit, also called "the drums," is a group of percussion instruments
                     arranged so that they can be played by one person. </p>
-                  <a href="checkout.php" onclick="Drumset()">
+                  <a href="checkout.php?product=Drumset&price=24999">
                     <h5 class="mb-1 ">Buy Now</h5>
                   </a>
-                  <a href="checkout.php" onclick="RentDrumset()">
+                  <a href="checkout.php?product=Drumset&price=1500">
                     <h5 class="mb-1 ">Rent Now</h5>
                   </a>
                   <a href="cart.php?product=Drumset&price=24999">
@@ -342,10 +346,10 @@
                     <p class="card-text mb-auto">The trumpet is a brass instrument commonly used in classical and jazz
                       ensembles.
                     </p>
-                    <a href="checkout.php" onclick="Trumpet()">
+                    <a href="checkout.php?product=Trumphrt&price=4999">
                       <h5 class="mb-1 ">Buy Now</h5>
                     </a>
-                    <a href="checkout.php" onclick="RentTrumpet()">
+                    <a href="checkout.php?product=Trumphrt&price=999">
                       <h5 class="mb-1 ">Rent Now</h5>
                     </a>
                     <a href="cart.php?product=Trumphrt&price=4999">
@@ -369,10 +373,10 @@
                     <p class="card-text mb-auto"> The flute is a family of musical instruments in the woodwind group.
                       Unlike woodwind instruments with reeds, a flute is an aerophone or reedless wind instrument that
                       produces its sound from the flow of air across an opening. </p>
-                    <a href="checkout.php" onclick="Flute()">
+                    <a href="checkout.php?product=Flute&price=3999">
                       <h5 class="mb-1 ">Buy Now</h5>
                     </a>
-                    <a href="checkout.php" onclick="RentFlute()">
+                    <a href="checkout.php?product=Flute&price=999">
                       <h5 class="mb-1 ">Rent Now</h5>
                     </a>
                     <a href="cart.php?product=Flute&price=3999">
@@ -402,10 +406,10 @@
                         the strings with the dominant hand, while simultaneously pressing selected strings against frets
                         with the fingers of the opposite hand </p>
                       <div class="container-fluid">
-                        <a href="checkout.php" onclick="Guitar()">
+                        <a href="checkout.php?product=Guitar&price=4999">
                           <h5 class="mb-1 ">Buy Now</h5>
                         </a>
-                        <a href="checkout.php" onclick="RentGuitar()">
+                        <a href="checkout.php?product=Guitar&price=999">
                           <h5 class="mb-1 ">Rent Now</h5>
                         </a>
                         <a href="cart.php?product=Guitar&price=4999">
@@ -434,10 +438,10 @@
                         Since the 18th century, tabla has been the principal percussion instrument in Hindustani
                         classical music, where it may be played solo, as accompaniment with other instruments and
                         vocals, and as a part of larger ensembles </p>
-                      <a href="checkout.php" onclick="Tabla()">
+                      <a href="checkout.php?product=Tabla&price=4999">
                         <h5 class="mb-1 ">Buy Now</h5>
                       </a>
-                      <a href="checkout.php" onclick="RentTabla()">
+                      <a href="checkout.php?product=Tabla&price=999">
                         <h5 class="mb-1 ">Rent Now</h5>
                       </a>
                       <a href="cart.php?product=Tabla&price=4999">

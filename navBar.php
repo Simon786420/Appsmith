@@ -51,11 +51,6 @@ if (isset($_SESSION['UserName']) && isset($_SESSION['Name'])) {
                 <h4>Contact us</h4>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="checkout.php">
-                <h4>CheckOut</h4>
-              </a>
-            </li>
           </ul>
           <?php
           $currentPage = basename($_SERVER['PHP_SELF']);

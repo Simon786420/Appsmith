@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repair</title>
+    <link rel="icon" href="images/logo223.jpeg" type="image/gif" sizes="16x16">
     <style>
         .section-bg {
             background: rgb(239, 245, 245);
