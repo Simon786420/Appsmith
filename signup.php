@@ -15,22 +15,22 @@
 <body>
   <form id="SignupForm">
     <h2>Sign Up</h2>
-    <label>Name:</label>
-    <input type="text" id="name" name="name"><br>
-    <label>Username:</label>
-    <input type="text" name="username" id="username"><br>
+    <label>Name:</label><span style="color: red;">*</span><br>
+    <input type="text" id="name" name="name">
+    <label>Username:</label><span style="color: red;">*</span><br>
+    <input type="text" name="username" id="username">
 
-    <label>Mobile:</label>
-    <input type="tel" name="mobile" required pattern="[0-9]{10}" id="mobile"><br>
+    <label>Mobile:</label><span style="color: red;">*</span><br>
+    <input type="tel" name="mobile" required pattern="[0-9]{10}" id="mobile">
 
-    <label>Email:</label>
-    <input type="email" name="email" id="email"><br>
+    <label>Email:</label><span style="color: red;">*</span><br>
+    <input type="email" name="email" id="email">
 
-    <label>Password:</label>
-    <input type="password" name="password" minimum length="8" id="password"><br>
+    <label>Password:</label><span style="color: red;">*</span><br>
+    <input type="password" name="password" minimum length="8" id="password">
 
-    <label>Confirm Password:</label>
-    <input type="password" name="confirmPassword" id="confPass"><br>
+    <label>Confirm Password:</label><span style="color: red;">*</span><br>
+    <input type="password" name="confirmPassword" id="confPass">
 
     <input type="button" value="Sign Up" id="SubmitBtn">
     <a href="index.php" class="ca">Go back to Login</a>
@@ -43,6 +43,7 @@
         var mobile = $("#mobile").val();
         var email = $("#email").val();
         var password = $("#password").val();
+        var confPass = $("#confPass").val();
         $.ajax({
           type: "POST",
           url: 'Logic.php',
@@ -52,14 +53,15 @@
             username: username,
             mobile: mobile,
             email: email,
-            password: password
+            password: password,
+            confPass:confPass,
           },
           success: function(response) {
             if (response == "Registered successfully") {
               swal({
-								title: "Error",
+								title: "success",
 								text: response,
-								type: "error",
+								type: "success",
 								showLoaderOnConfirm: true,
 							}).then((result) => {
 								if (result.value) {
@@ -67,7 +69,16 @@
 								}
 							});
             }else{
-
+              swal({
+								title: "Error",
+								text: response,
+								type: "Error",
+								showLoaderOnConfirm: true,
+							}).then((result) => {
+								if (result.value) {
+									// window.location.href = 'index.php';
+								}
+							});
             }
           }
         });

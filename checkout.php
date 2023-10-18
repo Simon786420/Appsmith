@@ -7,7 +7,7 @@
   <title>Passion Beaats-Connects with music</title>
   <link rel="icon" href="images/logo223.jpeg" type="image/gif" sizes="16x16">
   <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="checkout1.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     .Quantity button {
@@ -32,6 +32,7 @@
   $productName = $_GET['product'];
   $productPrice = $_GET['price'];
   ?>
+  <div style="margin: 30px; border: 1px solid black; padding: 20px; border-radius: 20px;">
   <div class="row g-5">
     <div class="col-md-5 col-lg-4 order-md-last">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -146,13 +147,14 @@
         </div>
 
 
-        <a href="	https://rzp.io/i/ErjzGYOjp">
-          <input type="submit" value="Continue to checkout" class="btn">
+        <a href="	https://rzp.io/i/ErjzGYOjp" style = "text-decoration: none; margin-bottom: 30px;">
+          <input type="submit" value="Continue to checkout" class="centered-button">
         </a>
       </div>
     </div>
   </div>
   </div>
+</div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   <script>
     $(document).ready(function() {

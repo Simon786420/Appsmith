@@ -1,0 +1,88 @@
+/* Apply styles to the 'Your cart' section */
+.container {
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgb(1, 0, 8);
+    padding: 20px; /* Optional: Set a maximum width to prevent it from becoming too wide on larger screens */
+}
+form {
+    background-color: #fff; /* Background color of the form */
+    border-radius: 5px;
+    border: 2px solid black; /* Rounded corners */
+    box-shadow: 0 0 10px rgb(1, 0, 8); /* Shadow */
+    padding: 20px; /* Optional: Add some padding inside the form */
+    
+    
+}
+/* Add green outline on focus */
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #4caf50; /* Green color */
+}
+
+#cart {
+    background-color: #cfd225;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Style the billing address form */
+  #billing-form {
+    background-color: rgb(1, 12, 11);
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style form elements */
+  .form-label {
+    font-weight: bold;
+    color: #000408;
+    /* background-color: rgb(25, 186, 178); */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid rgba(173, 166, 166, 0.797);
+    border-radius: 3px;
+    width: 100%;
+  }
+
+  /* Style the 'Continue to checkout' button */
+  .centered-button {
+    background-color: rgb(7, 1, 1); /* Dark background color */
+    color: rgb(244, 246, 247); /* Text color */
+    padding: 10px 20px; /* Padding for the button */
+    border: black; /* No border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    display: block; /* Display the button as a block element */
+    margin: 0 auto; /* Center horizontally using margin */
+}
+
+/* Add an outline on hover */
+.centered-button:hover {
+    background-color: lightgray; /* Light background color on hover */
+    border-color: black; /* Dark outline remains on hover */
+    color: black; 
+}
+  /* Style the form checkboxes */
+  .form-check-input {
+    margin-right: 5px;
+  }
+  
+  /* Apply styles to the 'Total (Rs)' section */
+  #total {
+    font-weight: bold;
+  }
+  
+  /* Add more styles and colors as needed */
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 768px) {
+    /* Adjust styles for smaller screens here */
+  }
+  

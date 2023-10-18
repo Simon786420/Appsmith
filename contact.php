@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Passion Beaats-Connects with music</title>
-  <link rel="icon" href="images/logo223.jpeg" type="image/gif" sizes="16x16">
-  <link rel="stylesheet" href="cart\contact.css">
+  <link rel="stylesheet" href="contact.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
@@ -14,6 +13,7 @@
   <?php include 'navBar.php'; ?>
   <div class="container my-4">
     <h2>Contact Us</h2>
+    
     <form>
       <div class="form-group">
         <label for="exampleFormControlInput1">Email address</label>
@@ -74,10 +74,11 @@
         <label for="exampleFormControlTextarea2">Elaborate Your Concern</label>
         <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
       </div>
-      <button class="btn btn-primary">Submit</button>
+      <div>
+      <button class="centered-button">Submit</button></div>
     </form>
     <section id="contact">
-      <div class="container">
+      <div class="container1">
         <div class="section-header">
           <h3 class="section-title">Contact Us</h3>
           <span class="section-divider"></span>
@@ -90,7 +91,7 @@
               <img src="images/logo223.jpeg" class="footer-logo">
               <br><br>
               <h4 style="color: #262626"> Passion Beats</h4>
-              <p>To Connect With music</p>
+              
             </div>
           </div>
 
@@ -99,12 +100,12 @@
               <br><br>
               <div>
                 <strong><i class="ion-ios-email-outline"></i></strong>
-                <p>mayureshdalvi43@gmail.com</p>
+                <p>simon43@gmail.com</p>
               </div>
 
               <div>
                 <i class="ion-ios-telephone-outline"></i>
-                <p>9004330868</p>
+                <p>555 987-4567</p>
               </div>
 
             </div>
