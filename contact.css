@@ -1,0 +1,40 @@
+.container {
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgb(1, 0, 8);
+    padding: 20px; /* Optional: Set a maximum width to prevent it from becoming too wide on larger screens */
+}
+.form-group input,
+.form-group select {
+    margin-bottom: 10px; /* Adjust the margin value as needed */
+}
+.form-group label {
+    font-weight: bold;
+    padding: 5px 10px; /* Adjust the padding values as needed */
+    border: 1px solid rgb(8, 0, 0); /* Add a border with a light gray color */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Keep labels in a line */
+    margin-right: 10px; /* Add some space between labels */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom:5px ;
+}
+
+.form-group{
+    margin-bottom: 10px;
+}
+.centered-button {
+    background-color: rgb(7, 1, 1); /* Dark background color */
+    color: rgb(244, 246, 247); /* Text color */
+    padding: 10px 20px; /* Padding for the button */
+    border: black; /* No border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    display: block; /* Display the button as a block element */
+    margin: 0 auto; /* Center horizontally using margin */
+}
+
+/* Add an outline on hover */
+.centered-button:hover {
+    background-color: lightgray; /* Light background color on hover */
+    border-color: black; /* Dark outline remains on hover */
+    color: black; 
+}

@@ -4,7 +4,7 @@ $sname= "localhost";
 $unmae= "root";
 $password = "";
 
-$db_name = "test_db";
+$db_name = "appsmith";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);
 
